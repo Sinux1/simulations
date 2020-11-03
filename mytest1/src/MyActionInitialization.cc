@@ -5,35 +5,31 @@
 //
 
 #include "MyActionInitialization.hh"
-#include "B2PrimaryGeneratorAction.hh"
-#include "B2RunAction.hh"
-#include "B2EventAction.hh"
+#include "MyPrimaryGeneratorAction.hh"
+#include "MyRunAction.hh"
+#include "MyEventAction.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-B2ActionInitialization::B2ActionInitialization()
-        : G4VUserActionInitialization()
-{}
+MyActionInitialization::MyActionInitialization()
+        : G4VUserActionInitialization() {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-B2ActionInitialization::~B2ActionInitialization()
-{}
+MyActionInitialization::~MyActionInitialization() {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void B2ActionInitialization::BuildForMaster() const
-{
-    SetUserAction(new B2RunAction);
+void MyActionInitialization::BuildForMaster() const {
+    SetUserAction(new MyRunAction);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void B2ActionInitialization::Build() const
-{
-    SetUserAction(new B2PrimaryGeneratorAction);
-    SetUserAction(new B2RunAction);
-    SetUserAction(new B2EventAction);
+void MyActionInitialization::Build() const {
+    SetUserAction(new MyPrimaryGeneratorAction);
+    SetUserAction(new MyRunAction);
+    SetUserAction(new MyEventAction);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

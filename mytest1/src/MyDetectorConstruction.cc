@@ -1,5 +1,4 @@
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "readability-convert-member-functions-to-static"
+
 //
 // Created by Samad Mazarei on 10/6/20.
 // Copyright (c) 2020 California State University Channel Islands. All rights reserved.
@@ -107,4 +106,3 @@ void MyDetectorConstruction::ConstructSDandField()
   // Register the field messenger for deleting
   G4AutoDelete::Register(fMagFieldMessenger);
 }
-#pragma clang diagnostic pop
