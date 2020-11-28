@@ -1,7 +1,7 @@
-# ignore everything 
+# ignore everything inside the folders in root level
 /*/*
-# ... but the follwing
-!/*/
+# ... but not the folders themselves, the src, inc, etc
+!/*/ 
 !/.gitignore
 !/*.cc
 !/*/src
