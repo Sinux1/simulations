@@ -1,0 +1,9 @@
+# ignore everything 
+/*
+# ... but the follwing
+!/.gitignore
+!/*.cc
+!/src
+!/include
+!/macros
+
