@@ -1,0 +1,8 @@
+/home/sinux/Desktop/geant4/test/mySim/mytest1/cmake-build-debug/CMakeFiles/install/strip.dir
+/home/sinux/Desktop/geant4/test/mySim/mytest1/cmake-build-debug/CMakeFiles/install/local.dir
+/home/sinux/Desktop/geant4/test/mySim/mytest1/cmake-build-debug/CMakeFiles/install.dir
+/home/sinux/Desktop/geant4/test/mySim/mytest1/cmake-build-debug/CMakeFiles/list_install_components.dir
+/home/sinux/Desktop/geant4/test/mySim/mytest1/cmake-build-debug/CMakeFiles/myTest1.dir
+/home/sinux/Desktop/geant4/test/mySim/mytest1/cmake-build-debug/CMakeFiles/myTest.dir
+/home/sinux/Desktop/geant4/test/mySim/mytest1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/sinux/Desktop/geant4/test/mySim/mytest1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,12 +1,8 @@
 # ignore everything inside the folders in root level
-/*/*
 /*
-# ... but not the folders themselves, the src, inc, etc
+#but not
 !/*/
+!src/*
+!include/*
+!macros/*
 !.gitignore
-!/*/*.cc
-!/*/src
-!/*/include
-!/*/macros
-!README.md
-
