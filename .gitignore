@@ -1,5 +1,7 @@
 # ignore everything inside the folders in root level
 /*
+cmake-build-debug
+.idea
 #but not
 !/*/
 !src/*
