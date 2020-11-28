@@ -11,7 +11,9 @@
 #include "G4Types.hh"
 
 #ifdef G4MULTITHREADED
+
 #include "G4MTRunManager.hh"
+
 #else
 #include "G4RunManager.hh"
 #endif
@@ -30,7 +32,7 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-int main(int argc,char** argv) {
+int main(int argc, char **argv) {
   // Detect interactive mode (if no arguments) and define UI session
   //
   G4UIExecutive *ui = 0;

@@ -12,14 +12,15 @@
 
 /// Event action class
 
-class MyEventAction : public G4UserEventAction
-{
+class MyEventAction : public G4UserEventAction {
 public:
-    MyEventAction();
-    virtual ~MyEventAction();
+  MyEventAction();
 
-    virtual void  BeginOfEventAction(const G4Event* );
-    virtual void    EndOfEventAction(const G4Event* );
+  ~MyEventAction() override;
+
+  void BeginOfEventAction(const G4Event *) override;
+
+  void EndOfEventAction(const G4Event *) override;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

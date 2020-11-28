@@ -11,8 +11,7 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-MyActionInitialization::MyActionInitialization()
-        : G4VUserActionInitialization() {}
+MyActionInitialization::MyActionInitialization() : G4VUserActionInitialization() {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -21,15 +20,15 @@ MyActionInitialization::~MyActionInitialization() {}
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void MyActionInitialization::BuildForMaster() const {
-    SetUserAction(new MyRunAction);
+  SetUserAction(new MyRunAction);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void MyActionInitialization::Build() const {
-    SetUserAction(new MyPrimaryGeneratorAction);
-    SetUserAction(new MyRunAction);
-    SetUserAction(new MyEventAction);
+  SetUserAction(new MyPrimaryGeneratorAction);
+  SetUserAction(new MyRunAction);
+  SetUserAction(new MyEventAction);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
