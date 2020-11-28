@@ -1,10 +1,6 @@
 # ignore everything inside the folders in root level
 /*
-cmake-build-debug
-.idea
-#but not
-!/*/
-!src/*
-!include/*
-!macros/*
-!.gitignore
+# but not
+! /*/src/
+! /*/include/
+! /*/*.cc
