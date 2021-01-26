@@ -14,8 +14,9 @@
 #include "MyDetectorConstruction.hh"    // My class header
 
 
-// Constructor for class MyDetectorConstruction calls base class constructor and then sets fScoringVolume(nullptr)
-MyDetectorConstruction::MyDetectorConstruction() : G4VUserDetectorConstruction(), fScoringVolume(nullptr) {}
+// Constructor for class MyDetectorConstruction calls base class constructor.
+
+MyDetectorConstruction::MyDetectorConstruction() : G4VUserDetectorConstruction() {}
 
 // Destructor ~ hope my syntax is correct
 MyDetectorConstruction::~MyDetectorConstruction() {}

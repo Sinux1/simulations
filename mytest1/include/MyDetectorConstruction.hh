@@ -21,12 +21,9 @@ public:
   G4VPhysicalVolume *Construct() override;
   // optional - there is a dummy default
   void ConstructSDandField() override;
-  // Leaving scoring volume here in skeleton ...
-  G4LogicalVolume *GetScoringVolume() const { return fScoringVolume; }
 
 protected:
-  // .. leaving
-  G4LogicalVolume *fScoringVolume;
+
 
 };
 
