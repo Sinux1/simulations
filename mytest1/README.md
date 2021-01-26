@@ -1,4 +1,4 @@
 # Skeleton branch  
-This branch is a bare bones skeleton without much code in it.
-I tried to create a src overview of a basic program, to make it
-a little easier to get started from one program to the next.  
+This branch was pulled from skeleton.  
+The plan is to add the code to fire a single proton through a world of air (or vacum) and to get it to visualize in the UI.  
+  
