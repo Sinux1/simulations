@@ -19,7 +19,7 @@ public:
   ~MyDetectorConstruction() override;
   // virtual base methods
   G4VPhysicalVolume *Construct() override;
-  // optional - there is a dummy default
+  // optional -
   void ConstructSDandField() override;
 
 protected:
