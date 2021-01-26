@@ -3,7 +3,7 @@
 // Copyright (c) 2020 California State University Channel Islands. All rights reserved.
 //
 
-
+// I left this code in skeleton branch because it is helpful.
 #include "MyPrimaryGeneratorAction.hh"
 
 #include "G4LogicalVolumeStore.hh"
@@ -26,7 +26,6 @@ MyPrimaryGeneratorAction::MyPrimaryGeneratorAction()
     fParticleGun = new G4ParticleGun(nofParticles);
 
     // default particle kinematic
-
     G4ParticleDefinition* particleDefinition
             = G4ParticleTable::GetParticleTable()->FindParticle("proton");
 
@@ -46,12 +45,11 @@ MyPrimaryGeneratorAction::~MyPrimaryGeneratorAction()
 
 void MyPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
-    // This function is called at the begining of event
+    // This function is called at the beginning of event
 
     // In order to avoid dependence of PrimaryGeneratorAction
     // on DetectorConstruction class we get world volume
     // from G4LogicalVolumeStore.
-
     G4double worldZHalfLength = 0;
     G4LogicalVolume* worldLV
             = G4LogicalVolumeStore::GetInstance()->GetVolume("World");

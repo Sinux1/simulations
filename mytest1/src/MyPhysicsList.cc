@@ -33,44 +33,16 @@
 #include "G4SystemOfUnits.hh"
 #include "G4LossTableManager.hh"
 
-MyPhysicsList::MyPhysicsList() :  G4VModularPhysicsList(),
-                                        fEmPhysicsList(nullptr),
-                                        fVerboseLevel(1)
-{
-  G4LossTableManager::Instance();
-  SetDefaultCutValue(1*mm);
+MyPhysicsList::MyPhysicsList() : G4VModularPhysicsList(),
+                                 fEmPhysicsList(nullptr),
+                                 fVerboseLevel(1) {}
 
-  // fMessenger = new MyPhysicsListMessenger(this);
-  // fStepMaxProcess = new StepMax();
-
-  // Initialise flags
-
-  SetVerboseLevel(1);
+MyPhysicsList::~MyPhysicsList() {}
 
 
-  // EM physics
-  fEmName = G4String("emstandard");
-  fEmPhysicsList = new G4EmStandardPhysics();
-}
+void MyPhysicsList::ConstructParticle() {}
 
-MyPhysicsList::~MyPhysicsList()
-{
+void MyPhysicsList::ConstructProcess() {}
 
-}
-
-
-void MyPhysicsList::ConstructParticle()
-{
-
-}
-
-void MyPhysicsList::ConstructProcess()
-{
-
-}
-
-void MyPhysicsList::SetCuts()
-{
-
-}
+void MyPhysicsList::SetCuts() {}
 
