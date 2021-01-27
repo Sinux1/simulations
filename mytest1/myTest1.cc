@@ -2,33 +2,16 @@
 // Created by Samad Mazarei on 10/6/20.
 // Copyright (c) 2020 California State University Channel Islands. All rights reserved.
 
-/// \file exampleB3a.cc
-/// \brief Main program of the B3a example
-
-#include <FTFP_BERT.hh>
-#include <G4PhysListFactory.hh>
-#include <G4StepLimiterPhysics.hh>
-#include "G4Types.hh"
-
-#ifdef G4MULTITHREADED
-
-#include "G4MTRunManager.hh"
-
-#else
 #include "G4RunManager.hh"
-#endif
-
+#include "G4Types.hh"
 #include "G4UImanager.hh"
 #include "G4VisExecutive.hh"
 #include "G4UIExecutive.hh"
 #include "G4TScoreNtupleWriter.hh"
-
-#include "Randomize.hh"
-
+// User defined classes
 #include "MyDetectorConstruction.hh"
-
+#include "MyPhysicsList.hh"
 #include "MyActionInitialization.hh"
-//#include "B3Analysis.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -55,22 +38,14 @@ int main(int argc, char **argv) {
 #endif
 */
 
-  // Creating an instance of the detecter geometry mandatory user class
+  // Returns pointer to run manager
   G4RunManager* runManager = new G4RunManager;
+   // Register Detector Constructor with run manager
   runManager->SetUserInitialization(new MyDetectorConstruction);
-  // Using default predefined physics list - FTFP_BERT
-  // from reading, seemingly robust,
-  // By calling the factory, I added much more precise
-  // set of em physics to the FTFP_BERT class (there are 4 classes of extended em physics, trade offs
-  // between speed and precision
-  G4PhysListFactory factory;
-  auto physicsList = factory.GetReferencePhysList("FTFP_BERT_EMZ");
-  physicsList->RegisterPhysics(new G4StepLimiterPhysics()); // TODO : Figure out if I need this
-  runManager->SetUserInitialization(physicsList);
-
-  // Set user action initialization
-  //
-  runManager->SetUserInitialization(new MyActionInitialization());
+  // Register Physics List with run manager
+  runManager->SetUserInitialization(new MyPhysicsList);
+  // Register Action Initialization with run manager (user actions)
+  runManager->SetUserInitialization(new MyActionInitialization()); // <- TODO
 
   // Initialize visualization
   //
@@ -82,12 +57,6 @@ int main(int argc, char **argv) {
   // Get the pointer to the User Interface manager
   G4UImanager *UImanager = G4UImanager::GetUIpointer();
 
-  // Activate score ntuple writer
-  // The Root output type (Root) is selected in B3Analysis.hh.
-  // The verbose level can be also set via UI commands
-  // /score/ntuple/writerVerbose level
-  // TODO : uncomment after implimentation -> G4TScoreNtupleWriter<G4AnalysisManager> scoreNtupleWriter;
-  // TODO : uncomment after implimentation -> scoreNtupleWriter.SetVerboseLevel(1);
 
   // Process macro or start UI session
   //

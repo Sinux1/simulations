@@ -21,6 +21,8 @@ public:
   void ConstructProcess() ;
   // virtual, and optional for G4VUserPhysicsList
   void SetCuts() ;
+  // helper for defining processes
+  void ConstructGeneral();
 };
 
 #endif //MYTEST1_MYPHYSICSLIST_HH

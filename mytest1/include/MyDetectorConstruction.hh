@@ -16,11 +16,11 @@ public:
   // Constructor
   MyDetectorConstruction();
   // Destructor
-  ~MyDetectorConstruction() override;
+  ~MyDetectorConstruction() ;
   // virtual base methods
-  G4VPhysicalVolume *Construct() override;
+  G4VPhysicalVolume *Construct() ;
   // optional -
-  void ConstructSDandField() override;
+  //void ConstructSDandField() override;
 
 protected:
 
