@@ -9,13 +9,17 @@
 #include "globals.hh"
 #include "G4VModularPhysicsList.hh"
 
-class MyPhysicsList : public G4VModularPhysicsList {
+class MyPhysicsList : public G4VUserPhysicsList {
 public:
+  // ctr
   MyPhysicsList();
+  // dtr
   ~MyPhysicsList() ;
-
+  // virtual, implement
   void ConstructParticle() ;
+  // virtual, implement
   void ConstructProcess() ;
+  // virtual, and optional for G4VUserPhysicsList
   void SetCuts() ;
 };
 
