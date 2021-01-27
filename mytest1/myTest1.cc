@@ -46,16 +46,18 @@ int main(int argc, char **argv) {
   // ***************************************************
   // Construct the default run manager
   //
+  /*
+   * Worry about threading later
 #ifdef G4MULTITHREADED
-  G4MTRunManager *runManager = new G4MTRunManager;
+  auto *runManager = new G4MTRunManager;
 #else
   G4RunManager* runManager = new G4RunManager;
 #endif
+*/
 
-  // Set mandatory initialization classes
-  //
+  // Creating an instance of the detecter geometry mandatory user class
+  G4RunManager* runManager = new G4RunManager;
   runManager->SetUserInitialization(new MyDetectorConstruction);
-
   // Using default predefined physics list - FTFP_BERT
   // from reading, seemingly robust,
   // By calling the factory, I added much more precise

@@ -69,6 +69,8 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct() {
 }
 
 // Optional Implementation for sensitive values and EM sensors
+/*
 void MyDetectorConstruction::ConstructSDandField() {
   // ... Waiting until I have a working proton
 }
+*/
