@@ -33,14 +33,16 @@
 #include "G4SystemOfUnits.hh"
 #include "G4LossTableManager.hh"
 
-MyPhysicsList::MyPhysicsList() : G4VModularPhysicsList(),
-                                 fEmPhysicsList(nullptr),
-                                 fVerboseLevel(1) {}
+MyPhysicsList::MyPhysicsList() : G4VModularPhysicsList(){}
 
 MyPhysicsList::~MyPhysicsList() {}
 
 
-void MyPhysicsList::ConstructParticle() {}
+void MyPhysicsList::ConstructParticle() {
+  // Defining all particles is verbose and complicated.
+  // There is a way to define all particles belonging to different
+  // geant4 groups using G4VModularPhysicsList
+}
 
 void MyPhysicsList::ConstructProcess() {}
 

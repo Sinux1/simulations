@@ -12,30 +12,11 @@
 class MyPhysicsList : public G4VModularPhysicsList {
 public:
   MyPhysicsList();
+  ~MyPhysicsList() ;
 
-  ~MyPhysicsList() override;
-
-protected:
-  // Construct particles and processes
-  void ConstructParticle() override;
-
-  void ConstructProcess() override;
-
-  void SetCuts() override;
-
-private:
-
-  // hide assignment operator
-  MyPhysicsList &operator=(const MyPhysicsList &right);
-
-  MyPhysicsList(const MyPhysicsList &);
-
-  G4VPhysicsConstructor *fEmPhysicsList;
-
-  G4String fEmName;
-
-  G4int fVerboseLevel;
-
+  void ConstructParticle() ;
+  void ConstructProcess() ;
+  void SetCuts() ;
 };
 
 #endif //MYTEST1_MYPHYSICSLIST_HH
