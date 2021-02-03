@@ -8,7 +8,7 @@
 
 #include "G4Run.hh"
 #include "G4RunManager.hh"
-
+// TODO: Read dox and impliment
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 MyRunAction::MyRunAction(): G4UserRunAction() {
