@@ -4,6 +4,7 @@
 //
 
 // I left this code in skeleton branch because it is helpful.
+// This creates the particle gun that will shoot our particle.
 #include "MyPrimaryGeneratorAction.hh"
 
 #include "G4LogicalVolumeStore.hh"
@@ -22,15 +23,20 @@
 MyPrimaryGeneratorAction::MyPrimaryGeneratorAction()
         : G4VUserPrimaryGeneratorAction()
 {
+    // Number of particles
     G4int nofParticles = 1;
     fParticleGun = new G4ParticleGun(nofParticles);
 
-    // default particle kinematic
+    // Return a particle Table
+    G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
+    // Retrieve proton from table
     G4ParticleDefinition* particleDefinition
-            = G4ParticleTable::GetParticleTable()->FindParticle("proton");
-
+            = particleTable->FindParticle("proton");
+    // Register with gun
     fParticleGun->SetParticleDefinition(particleDefinition);
+    // I need to read back through the docs for this one
     fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
+    // Set energy
     fParticleGun->SetParticleEnergy(3.0*GeV);
 }
 
@@ -45,27 +51,25 @@ MyPrimaryGeneratorAction::~MyPrimaryGeneratorAction()
 
 void MyPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
-    // This function is called at the beginning of event
-
-    // In order to avoid dependence of PrimaryGeneratorAction
-    // on DetectorConstruction class we get world volume
+    // We get world volume
     // from G4LogicalVolumeStore.
-    G4double worldZHalfLength = 0;
+    G4double worldZHalfLength = {0};
     G4LogicalVolume* worldLV
             = G4LogicalVolumeStore::GetInstance()->GetVolume("World");
-    G4Box* worldBox = NULL;
-    if ( worldLV ) worldBox = dynamic_cast<G4Box*>(worldLV->GetSolid());
-    if ( worldBox ) worldZHalfLength = worldBox->GetZHalfLength();
-    else  {
+    G4Box* worldBox = nullptr;
+    if ( worldLV ) {
+      worldBox = dynamic_cast<G4Box*>(worldLV->GetSolid());
+    }
+    if ( worldBox ){
+      worldZHalfLength = worldBox->GetZHalfLength();
+    }
+    else{
         G4cerr << "World volume of box not found." << G4endl;
         G4cerr << "Perhaps you have changed geometry." << G4endl;
-        G4cerr << "The gun will be place in the center." << G4endl;
     }
-
     // Note that this particular case of starting a primary particle on the world boundary
     // requires shooting in a direction towards inside the world.
     fParticleGun->SetParticlePosition(G4ThreeVector(0., 0., -worldZHalfLength));
-
     fParticleGun->GeneratePrimaryVertex(anEvent);
 }
 

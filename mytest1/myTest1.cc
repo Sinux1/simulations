@@ -22,21 +22,7 @@ int main(int argc, char **argv) {
   if (argc == 1) {
     ui = new G4UIExecutive(argc, argv);
   }
-  // ***************************************************
-  // Optionally: choose a different Random engine...
-  //
-  // G4Random::setTheEngine(new CLHEP::MTwistEngine);
-  // ***************************************************
-  // Construct the default run manager
-  //
-  /*
-   * Worry about threading later
-#ifdef G4MULTITHREADED
-  auto *runManager = new G4MTRunManager;
-#else
-  G4RunManager* runManager = new G4RunManager;
-#endif
-*/
+
 
   // Returns pointer to run manager
   G4RunManager* runManager = new G4RunManager;
@@ -66,7 +52,7 @@ int main(int argc, char **argv) {
     G4String fileName = argv[1];
     UImanager->ApplyCommand(command + fileName);
   } else {
-    // interactive mode
+    // interactive mode - TODO: Figure this part out asap
     UImanager->ApplyCommand("/control/execute init_vis.mac");
     ui->SessionStart();
     delete ui;
