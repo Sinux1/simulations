@@ -19,12 +19,11 @@
 
 int main(int argc, char **argv) {
   // Detect interactive mode (if no arguments) and define UI session
-  // TODO: Configure for interactive default for now
-  G4UIExecutive *ui = 0;
-  if (argc == 1) {
+  //
+  G4UIExecutive* ui = 0;
+  if ( argc == 1 ) {
     ui = new G4UIExecutive(argc, argv);
   }
-
 
   // Returns pointer to run manager
   G4RunManager* runManager = new G4RunManager;
@@ -58,7 +57,7 @@ int main(int argc, char **argv) {
     G4String fileName = argv[1];
     UImanager->ApplyCommand(command + fileName);
   } else {
-    // interactive mode - TODO: Figure this part out asap
+    // interactive mode
     UImanager->ApplyCommand("/control/execute init_vis.mac");
     ui->SessionStart();
     delete ui;

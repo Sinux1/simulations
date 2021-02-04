@@ -4,16 +4,18 @@
 //
 
 #include "MyEventAction.hh"
+#include "MyRunAction.hh"
 
 #include "G4Event.hh"
 #include "G4EventManager.hh"
 #include "G4TrajectoryContainer.hh"
 #include "G4Trajectory.hh"
 #include "G4ios.hh"
+
 // TODO: Read dox and impliment
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-MyEventAction::MyEventAction() : G4UserEventAction() {}
+MyEventAction::MyEventAction(MyRunAction* runaction) : G4UserEventAction() {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 

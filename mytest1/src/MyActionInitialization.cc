@@ -27,11 +27,16 @@ void MyActionInitialization::BuildForMaster() const {
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void MyActionInitialization::Build() const {
-  SetUserAction(new MyPrimaryGeneratorAction);
-  SetUserAction(new MyRunAction);
-  SetUserAction(new MyEventAction);
 
-  SetUserAction(new MySteppingAction(eventAction));
+  SetUserAction(new MyPrimaryGeneratorAction);
+
+  MyRunAction* runaction = new MyRunAction;
+  SetUserAction(runaction);
+
+  MyEventAction* eventaction = new MyEventAction(runaction);
+  SetUserAction(eventaction);
+
+  SetUserAction(new MySteppingAction(eventaction));
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

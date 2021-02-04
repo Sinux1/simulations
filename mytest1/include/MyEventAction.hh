@@ -10,11 +10,13 @@
 
 #include "globals.hh"
 
+class MyRunAction;
+
 /// Event action class
 
 class MyEventAction : public G4UserEventAction {
 public:
-  MyEventAction();
+  MyEventAction(MyRunAction* runaction);
 
   ~MyEventAction() override;
 

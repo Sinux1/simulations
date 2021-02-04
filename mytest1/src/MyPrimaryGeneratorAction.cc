@@ -28,11 +28,11 @@ MyPrimaryGeneratorAction::MyPrimaryGeneratorAction()
     // Return a particle Table
     G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
     // Retrieve proton from table
-    G4ParticleDefinition* particleDefinition
+    G4ParticleDefinition* particle
             = particleTable->FindParticle("proton");
     // Register with gun
-    fParticleGun->SetParticleDefinition(particleDefinition);
-    // I need to read back through the docs for this one
+    fParticleGun->SetParticleDefinition(particle);
+    // I need to read back through the docs for this one, although its just a unit direction (I think)
     fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
     // Set energy
     fParticleGun->SetParticleEnergy(3.0*GeV);
