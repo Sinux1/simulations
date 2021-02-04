@@ -2,6 +2,8 @@
 // Created by Samad Mazarei on 10/6/20.
 // Copyright (c) 2020 California State University Channel Islands. All rights reserved.
 
+#include <G4VModularPhysicsList.hh>
+#include <QGSP_BERT.hh>
 #include "G4RunManager.hh"
 #include "G4Types.hh"
 #include "G4UImanager.hh"
@@ -10,8 +12,8 @@
 #include "G4TScoreNtupleWriter.hh"
 // User defined classes
 #include "MyDetectorConstruction.hh"
-#include "MyPhysicsList.hh"
 #include "MyActionInitialization.hh"
+
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -28,8 +30,12 @@ int main(int argc, char **argv) {
   G4RunManager* runManager = new G4RunManager;
    // Register Detector Constructor with run manager
   runManager->SetUserInitialization(new MyDetectorConstruction);
-  // Register Physics List with run manager
-  runManager->SetUserInitialization(new MyPhysicsList);
+
+  // Physics list
+  G4VModularPhysicsList* physicsList = new QGSP_BERT;
+  physicsList->SetVerboseLevel(1);
+  runManager->SetUserInitialization(physicsList);
+
   // Register Action Initialization with run manager (user actions)
   runManager->SetUserInitialization(new MyActionInitialization()); // <- TODO
 

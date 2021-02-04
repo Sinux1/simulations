@@ -21,10 +21,22 @@ MyEventAction::~MyEventAction() {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void MyEventAction::BeginOfEventAction(const G4Event *) {}
+void MyEventAction::BeginOfEventAction(const G4Event *) {
+  // Place holder for later
+  G4cout
+          << G4endl
+          << "--------------------End of Run-----------------------";
+
+}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void MyEventAction::EndOfEventAction(const G4Event *event) {}
+void MyEventAction::EndOfEventAction(const G4Event *) {
+  // Place holder for later
+  G4cout
+          << G4endl
+          << "--------------------End of Run-----------------------";
+
+}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
