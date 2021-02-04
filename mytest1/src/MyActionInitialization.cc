@@ -8,6 +8,7 @@
 #include "MyPrimaryGeneratorAction.hh"
 #include "MyRunAction.hh"
 #include "MyEventAction.hh"
+#include "MySteppingAction.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -30,7 +31,7 @@ void MyActionInitialization::Build() const {
   SetUserAction(new MyRunAction);
   SetUserAction(new MyEventAction);
 
-  //SetUserAction(new MySteppingAction(eventAction));
+  SetUserAction(new MySteppingAction(eventAction));
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
