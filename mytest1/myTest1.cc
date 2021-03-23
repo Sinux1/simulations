@@ -31,6 +31,8 @@ int main(int argc, char **argv) {
   runManager->SetUserInitialization(new MyDetectorConstruction);
 
   // Physics list
+  // QGSP_BERT is the former geant4 default and can be read about in
+  // section 2.3 of the Guide For Physics Lists
   G4VModularPhysicsList* physicsList = new QGSP_BERT;
   physicsList->SetVerboseLevel(1);
   runManager->SetUserInitialization(physicsList);

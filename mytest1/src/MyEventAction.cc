@@ -27,7 +27,8 @@ void MyEventAction::BeginOfEventAction(const G4Event *) {
   // Place holder for later
   G4cout
           << G4endl
-          << "--------------------End of Run-----------------------";
+          << "--------------------Beginning of EventAction-----------------------"
+          << G4endl;
 
 }
 
@@ -37,7 +38,8 @@ void MyEventAction::EndOfEventAction(const G4Event *) {
   // Place holder for later
   G4cout
           << G4endl
-          << "--------------------End of Run-----------------------";
+          << "--------------------End of Event Action-----------------------"
+          << G4endl;
 
 }
 

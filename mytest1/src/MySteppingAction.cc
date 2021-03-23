@@ -32,7 +32,8 @@ void MySteppingAction::UserSteppingAction(const G4Step* step){
   }
     G4cout
           << G4endl
-          << "--------------------User Stepping Action-----------------------";
+          << "--------------------Executing Stepping Action-----------------------"
+          << G4endl;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

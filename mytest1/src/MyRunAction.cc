@@ -27,7 +27,8 @@ void MyRunAction::BeginOfRunAction(const G4Run *) {
   // Place holder for later
   G4cout
           << G4endl
-          << "-----------------Beginning of Run--------------------";
+          << "-----------------Beginning of RunAction--------------------"
+          << G4endl;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -36,7 +37,8 @@ void MyRunAction::EndOfRunAction(const G4Run *) {
   // Place holder for later
   G4cout
           << G4endl
-          << "--------------------End of Run-----------------------";
+          << "--------------------End of RunAction-----------------------"
+          << G4endl;
 
 }
 
