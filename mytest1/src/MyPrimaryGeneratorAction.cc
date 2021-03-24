@@ -32,10 +32,12 @@ MyPrimaryGeneratorAction::MyPrimaryGeneratorAction()
             = particleTable->FindParticle("proton");
     // Register with gun
     fParticleGun->SetParticleDefinition(particle);
-    // I need to read back through the docs for this one, although its just a unit direction (I think)
+    // The G4ThreeVector takes a unit vector,
+    // it sets the direction that the particle gun will shoot.
+    // In this case (1 0 0) means that it will fire from its position into the positive x direction
     fParticleGun->SetParticleMomentumDirection(G4ThreeVector(1.,0.,0.));
-    // Set energy
-    fParticleGun->SetParticleEnergy(3.0*GeV);
+    // Set energy to 1 MeV
+    fParticleGun->SetParticleEnergy(1.0*MeV);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -50,8 +52,9 @@ MyPrimaryGeneratorAction::~MyPrimaryGeneratorAction()
 void MyPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
     // We get world volume
-    // from G4LogicalVolumeStore.
-    G4double worldZHalfLength = {0};
+    // from G4LogicalVolumeStore so that we can get
+    // values for setting position of particle gun below.
+    G4double worldXHalfLength = {0};
     G4LogicalVolume* worldLV
             = G4LogicalVolumeStore::GetInstance()->GetVolume("World");
     G4Box* worldBox = nullptr;
@@ -59,15 +62,17 @@ void MyPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
       worldBox = dynamic_cast<G4Box*>(worldLV->GetSolid());
     }
     if ( worldBox ){
-      worldZHalfLength = worldBox->GetZHalfLength();
+      worldXHalfLength = worldBox->GetXHalfLength();
     }
     else{
         G4cerr << "World volume of box not found." << G4endl;
         G4cerr << "Perhaps you have changed geometry." << G4endl;
     }
-    // Note that this particular case of starting a primary particle on the world boundary
-    // requires shooting in a direction towards inside the world.
-    fParticleGun->SetParticlePosition(G4ThreeVector(0., 0., -worldZHalfLength));
+    // We set the direction that the particle gun will fire above,
+    // now we will set the location from which it will fire. This particular case
+    // will from the beginning of the world in the negative x direction and the origin
+    // of the yz plane.
+    fParticleGun->SetParticlePosition(G4ThreeVector(- worldXHalfLength , 0., 0));
     fParticleGun->GeneratePrimaryVertex(anEvent);
 }
 
