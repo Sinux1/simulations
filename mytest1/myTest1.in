@@ -1,0 +1,11 @@
+# Macro file for my first test
+
+/run/initialize
+
+# proton 1 MeV
+/gun/particle proton
+/gun/energy 1 MeV
+# will print run number every run
+/run/printProgress 1
+# 1 runs
+/run/beamOn 1
