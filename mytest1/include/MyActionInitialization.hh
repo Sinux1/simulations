@@ -1,4 +1,4 @@
- //
+//
 // Created by Samad Mazarei on 10/19/20.
 // Copyright (c) 2020 California State University Channel Islands. All rights reserved.
 //
@@ -14,13 +14,15 @@ class MyDetectorConstruction;
 /// Action initialization class.
 ///
 
- class MyActionInitialization : public G4VUserActionInitialization
- {
- public:
-     MyActionInitialization();
-     virtual ~MyActionInitialization();
+class MyActionInitialization : public G4VUserActionInitialization {
+public:
+  MyActionInitialization();
 
-     virtual void BuildForMaster() const;
-     virtual void Build() const;
- };
+  ~MyActionInitialization() override;
+
+  void BuildForMaster() const override;
+
+  void Build() const override;
+};
+
 #endif //MYTEST1_MYACTIONINITIALIZATION_HH

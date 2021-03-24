@@ -5,42 +5,25 @@
 
 #ifndef MYTEST1_MYDETECTORCONSTRUCTION_HH
 #define MYTEST1_MYDETECTORCONSTRUCTION_HH
-
+// This is the base class to inherit from
 #include "G4VUserDetectorConstruction.hh"
 #include "globals.hh"
 
-class G4VPhysicalVolume;
 
-class G4GlobalMagFieldMessenger;
-
-class G4LogicalVolume;
 
 class MyDetectorConstruction : public G4VUserDetectorConstruction {
 public:
+  // Constructor
   MyDetectorConstruction();
-
-  ~MyDetectorConstruction() override;
-
+  // Destructor
+  ~MyDetectorConstruction() ;
   // virtual base methods
-  G4VPhysicalVolume *Construct() override;
-
-  void ConstructSDandField() override;
-
-
-  G4LogicalVolume *GetScoringVolume() const { return fScoringVolume; }
-
-
+  G4VPhysicalVolume *Construct() ;
+  // optional -
+  //void ConstructSDandField() override;
 
 protected:
-  G4LogicalVolume *fScoringVolume;
-  static G4ThreadLocal G4GlobalMagFieldMessenger *fMagFieldMessenger;
 
-  // self defined methods
-  void DefineMaterials();
-
-  static void ConstructMaterials();
-
-  G4VPhysicalVolume *DefineVolumes();
 
 };
 
