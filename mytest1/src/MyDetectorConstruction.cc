@@ -37,15 +37,15 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct() {
   // For now, arbitrary measurements
   // This is where the volumes will be defined
   // solid->logical->physical
-  auto worldSizeXY = 12 * cm;
-  auto worldSizeZ = 6 * cm;
+  auto worldSizeX = 100 * mm;
+  auto worldSizeYZ = 10 * mm;
   // Option to switch on/off checking of volumes overlaps
   //
   G4bool checkOverlaps = true; // I have no idea what this does yet
 
   // The geometrical dimension of my world
   auto worldSolid // recall that it is in half sizes
-          = new G4Box("World", worldSizeXY / 2, worldSizeXY / 2, worldSizeZ / 2);
+          = new G4Box("World", worldSizeX / 2, worldSizeYZ / 2, worldSizeYZ / 2);
 
   // The logical volume is the solid-geometry with mass (material!)
   auto worldLogicalVolume

@@ -33,7 +33,7 @@ MyPrimaryGeneratorAction::MyPrimaryGeneratorAction()
     // Register with gun
     fParticleGun->SetParticleDefinition(particle);
     // I need to read back through the docs for this one, although its just a unit direction (I think)
-    fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
+    fParticleGun->SetParticleMomentumDirection(G4ThreeVector(1.,0.,0.));
     // Set energy
     fParticleGun->SetParticleEnergy(3.0*GeV);
 }
