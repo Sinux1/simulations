@@ -27,7 +27,8 @@ int main(int argc, char **argv) {
 
   // Returns pointer to run manager
   G4RunManager* runManager = new G4RunManager;
-   // Register Detector Constructor with run manager
+
+  // Register Detector Constructor with run manager
   runManager->SetUserInitialization(new MyDetectorConstruction);
 
   // Physics list

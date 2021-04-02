@@ -1,4 +1,4 @@
 # Visualisation files
 ## Place them into the same directory as your executable  
-I have not changed these very much from the example B1 that I got it from.  
-I have changed things specific to this current simulation.   
+I have not changed these very much from the example that I got them from.  
+Since the mac files need to be in the directory with the executable, the mac files being used may be found in build or cmake-build-debug..  

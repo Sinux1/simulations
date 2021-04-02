@@ -14,6 +14,9 @@
 #include "MyDetectorConstruction.hh"    // My class header
 
 
+G4ThreadLocal
+G4GlobalMagFieldMessenger* MyDetectorConstruction::fMagFieldMessenger = 0;
+
 // Constructor for class MyDetectorConstruction calls base class constructor.
 
 MyDetectorConstruction::MyDetectorConstruction() : G4VUserDetectorConstruction() {}
@@ -68,9 +71,16 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct() {
 
 }
 
-// Optional Implementation for sensitive values and EM sensors
-/*
-void MyDetectorConstruction::ConstructSDandField() {
-  // ... Waiting until I have a working proton
+void MyDetectorConstruction::ConstructSDandField()
+{
+
+  // Create global magnetic field messenger.
+  // Uniform magnetic field is then created automatically if
+  // the field value is not zero.
+  G4ThreeVector fieldValue = G4ThreeVector(0.,0., 1.65 * kilogauss);
+  fMagFieldMessenger = new G4GlobalMagFieldMessenger(fieldValue);
+  fMagFieldMessenger->SetVerboseLevel(1);
+
+  // Register the field messenger for deleting
+  G4AutoDelete::Register(fMagFieldMessenger);
 }
-*/
